@@ -7,11 +7,11 @@ module UaEnv
   INSTALLATION_DIRECTORY = File.expand_path(File.dirname(__FILE__) + '/../') #:nodoc:
   
   def self.load_component(name) #:nodoc:
-    require File.join(UaEnv::INSTALLATION_DIRECTORY, "lib", name.to_s, name.to_s)
+    require File.join(UaEnv::INSTALLATION_DIRECTORY, "lib/uaenv", name.to_s, name.to_s)
   end
 
   def self.reload_component(name) #:nodoc:
-    load File.join(UaEnv::INSTALLATION_DIRECTORY, "lib", name.to_s, "#{name}.rb")
+    load File.join(UaEnv::INSTALLATION_DIRECTORY, "lib/uaenv", name.to_s, "#{name}.rb")
   end
 end
 

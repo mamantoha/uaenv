@@ -4,7 +4,7 @@ require "uaenv/version"
 
 Gem::Specification.new do |s|
   s.name        = "uaenv"
-  s.version     = Uaenv::VERSION
+  s.version     = UaEnv::VERSION
   s.authors     = ["Anton Maminov"]
   s.email       = ["anton.linux@gmail.com"]
   s.homepage    = "https://github.com/mamantoha/uaenv"
