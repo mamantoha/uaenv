@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 
-require "uaenv/version"
+require_relative "uaenv/version"
 
 module UaEnv
   # Каталог, куди встановлений модуль UaEnv. Потрібен для автоматичного копіювання у інші додатки.

@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 require 'test/unit'
-require File.dirname(__FILE__) + '/../lib/uaenv'
+require_relative '../lib/uaenv'
 
 class PropysomTestCase < Test::Unit::TestCase
   def test_ints
