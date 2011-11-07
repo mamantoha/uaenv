@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 
 Dir.entries(File.dirname(__FILE__)).each do |it|
-  next unless =~ /^test_/
-    require File.dirname(__FILE__) + '/' + it
+  next unless it =~ /^test_/
+  require File.dirname(__FILE__) + '/' + it
 end
