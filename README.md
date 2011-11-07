@@ -29,12 +29,12 @@ UaEnv реалізує суму прописом для цілих і дробо
 ## Дати
 
 В клас Date введені наступні константи:
-  - UA_ABBR_DAYNAMES (нд пн вт ...)
-  - UA_DAYNAMES_E (перше друге третє ...)
-  - UA_ABBR_MONTHNAMES (січ лют бер ...)
-  - UA_INFLECTED_MONTHNAMES (січня лютого березня)
-  - UA_DAYNAMES (неділя понеділок вівторок)
-  - UA_MONTHNAMES (січень лютий березень)
+- UA_ABBR_DAYNAMES (нд пн вт ...)
+- UA_DAYNAMES_E (перше друге третє ...)
+- UA_ABBR_MONTHNAMES (січ лют бер ...)
+- UA_INFLECTED_MONTHNAMES (січня лютого березня)
+- UA_DAYNAMES (неділя понеділок вівторок)
+- UA_MONTHNAMES (січень лютий березень)
 
 Приклад використання:
 
