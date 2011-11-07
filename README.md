@@ -28,7 +28,7 @@ UaEnv реалізує суму прописом для цілих і дробо
 
 ## Дати
 
-В клас Date введені наступні константи:
+Введені наступні константи:
 
 - UA_ABBR_DAYNAMES (нд пн вт ...)
 - UA_DAYNAMES_E (перше друге третє ...)
@@ -41,8 +41,8 @@ UaEnv реалізує суму прописом для цілих і дробо
 
     require 'date'
     date = Date.new(2007, 01, 5)
-    puts "#{Date::UA_ABBR_MONTHNAMES[date.mon]}" => січ
-    puts "#{Date::UA_DAYNAMES[date.wday]}" => п'ятниця
+    puts "#{UaEnv::UaDates::UA_ABBR_MONTHNAMES[date.mon]}" => січ
+    puts "#{UaEnv::UaDates::UA_DAYNAMES[date.wday]}" => п'ятниця
 
 Відбувається "перекриття" стандартної
 функції Time#strftime ("рідну" #strftime можно продовжити використовувати через alias-метод #strftime_nouaenv):

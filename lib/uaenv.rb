@@ -15,7 +15,7 @@ module UaEnv
   end
 end
 
-UaEnv::load_component :datetime # Дата і час без локалі
+UaEnv::load_component :uadates # Дата і час без локалі
 UaEnv::load_component :pluralizer # Вивід чисел прописом
 UaEnv::load_component :transliteration # Транслітерація
 UaEnv::load_component :fio # Відмінювання прізвища, імені і по батькові у давальний відмінок
