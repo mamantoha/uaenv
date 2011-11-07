@@ -4,7 +4,10 @@ module UaEnv
 
   module DateTime
 
-    @@ignored = "\xFF\xFF\xFF\xFF" # %% == Literal "%" character 
+    # http://unicode.org/reports/tr20/tr20-1.html
+    # U+FFFC  Object replacement character
+    # офіційно застосовується для позначення вкладеного об'єкту
+    @@ignored = [0xEF, 0xBF, 0xBC].pack("U*").freeze 
 
     def self.ua_strftime(date='%d.%m.%Y', time='')
       date.gsub!(/%%/, @@ignored)
