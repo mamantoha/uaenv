@@ -26,11 +26,19 @@ module UaEnv::Transliteration::StringFormatting
     self.replace(self.translify_national)
   end
 
-  def translify_iso9
-    UaEnv::Transliteration::ISO9::translify(self.to_s)
+  def translify_iso9a
+    UaEnv::Transliteration::ISO9A::translify(self.to_s)
   end
 
-  def translify_iso9!
+  def translify_iso9a!
+    self.replace(self.translify_iso9)
+  end
+
+  def translify_iso9b
+    UaEnv::Transliteration::ISO9B::translify(self.to_s)
+  end
+
+  def translify_iso9b!
     self.replace(self.translify_iso9)
   end
 

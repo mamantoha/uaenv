@@ -5,7 +5,7 @@
 # в офіційних документах (паперів при виїзді з України в Німеччину для постійного проживання).
 # Приклад транслітерації: «Олександр Віталійович Рибальченко» = "Oleksandr Vìtalìjovič Ribal´čenko"
 #
-module UaEnv::Transliteration::ISO9
+module UaEnv::Transliteration::ISO9A
 
   UA_UPPER = %w{ А Б В Г Ґ Д Е Є Ж З И І Ї Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ю Я Ь ' }
   UA_LOWER = %w{ а б в г ґ д е є ж з и і ї й к л м н о п р с т у ф х ц ч ш щ ю я ь ' }
@@ -39,6 +39,49 @@ module UaEnv::Transliteration::ISO9
 
       elsif UA_LOWER.include?(char)
         # "яна" => "âna"
+        ch = (TABLE[char].is_a?(Array) ? TABLE[char][variant] : TABLE[char] )
+        result << ch
+
+      else
+        result << char
+      end
+
+    end
+    return result
+  end
+end
+
+module UaEnv::Transliteration::ISO9B
+
+  UA_UPPER = %w{ А Б В Г Ґ Д Е Є Ж З И І Ї Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ю Я Ь ’ }
+  UA_LOWER = %w{ а б в г ґ д е є ж з и і ї й к л м н о п р с т у ф х ц ч ш щ ю я ь ’ }
+  UA = UA_LOWER + UA_UPPER
+  ISO9_LOWER = ['a', 'b', 'v', 'g', 'g`', 'd', 'e', 'ye', 'zh', 'z', 'y`', 'i', 'yi', 'j', 'k', 'l', 'm',
+    'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'x', ['c', 'cz'], 'ch', 'sh', 'shh', 'yu', 'ya', '`', '\'']
+
+  ISO9_UPPER = ISO9_LOWER.map{ |i| i.is_a?( Array ) ? i.map{ |j| j.upcase } : i.upcase }
+  
+  ISO9 = ISO9_LOWER + ISO9_UPPER
+
+  TABLE = {}
+  UA.each_with_index { |char, index| TABLE[char] = ISO9[index] }
+
+  def self.translify(str)
+    chars = str.split(//)
+
+    result = ''
+    chars.each_with_index do |char, index|
+      variant = (index != 0 ? ( chars[index - 1] == " " ? 1 : 0 ) : 1)
+
+      if UA_UPPER.include?(char) && UA_LOWER.include?(chars[index+1])
+        ch = (TABLE[char].is_a?(Array) ? TABLE[char][variant].downcase.capitalize : TABLE[char].downcase.capitalize)
+        result << ch
+
+      elsif UA_UPPER.include?(char)
+        ch = (TABLE[char].is_a?(Array) ? TABLE[char][variant] : TABLE[char] )
+        result << ch
+
+      elsif UA_LOWER.include?(char)
         ch = (TABLE[char].is_a?(Array) ? TABLE[char][variant] : TABLE[char] )
         result << ch
 
