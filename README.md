@@ -44,13 +44,23 @@ UaEnv реалізує суму прописом для цілих і дробо
     puts "#{UaEnv::UaDates::UA_ABBR_MONTHNAMES[date.mon]}" => січ
     puts "#{UaEnv::UaDates::UA_DAYNAMES[date.wday]}" => п'ятниця
 
-Відбувається "перекриття" стандартної
-функції Time#strftime ("рідну" #strftime можно продовжити використовувати через alias-метод #strftime_nouaenv):
+Починаючи з версії 0.0.9 не відбувається "перекриття" стандартної
+функції Time#strftime:
 
-    Time.local(2007,"jan",5).strftime("%a, %A, %b, %B") => "пт, п'ятниця, січ, січень"
-    Time.local(2007,"jan",5).strftime_nouaenv("%a, %A, %b, %B") => "Fri, Friday, Jan, January"
-    Time.now.strftime("Сьогодні %A, %d %B %Y року, %H:%M:%S") => "Сьогодні субота, 6 січня 2007 року, 14:50:34"
+    Time.local(2007,"jan",5).ua_strftime("%a, %A, %b, %B") => "пт, п'ятниця, січ, січень"
+    Time.local(2007,"jan",5).strftime("%a, %A, %b, %B") => "Fri, Friday, Jan, January"
+    Time.now.ua_strftime("Сьогодні %A, %d %B %Y року, %H:%M:%S") => "Сьогодні субота, 6 січня 2007 року, 14:50:34"
 
+
+## Відстань між двома датами
+
+Приблизна відстань між двома цілими числами в секундах:
+
+    UaEnv::UaDates.distance_of_time_in_words(0, 31, true) => "півхвилини"
+    UaEnv::UaDates.distance_of_time_in_words(0, 140) => "2 хвилини"
+    UaEnv::UaDates.distance_of_time_in_words(0, 60 * 120 + 60 * 60) => "близько 3 годин"
+    UaEnv::UaDates.distance_of_time_in_words(60 * 60 * 24 * 3) => "3 дні"
+    
 
 ## Транслітерація
 

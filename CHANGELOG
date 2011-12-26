@@ -1,3 +1,6 @@
+Версія 0.0.9 - 26.12.2011
+  * UaEnv::UaDates#ua_strftime більше не підмінює стандартні методи Time#strftime DateTime#strftime
+  * Новий метод UaEnv::UaDates#distance_of_time_in_words 
 Версія 0.0.8 - 11.11.2011
   * Змінена структура проекту
   * Модуль UaEnv::DateTime перейменований у UaEnv::UaDates
