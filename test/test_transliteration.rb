@@ -16,7 +16,8 @@ class TransliterationTestCase < Test::Unit::TestCase
     assert_equal "Ģalaģan", "Ґалаґан".translify_iso9a
     assert_equal "Yizhakevy`ch", "Їжакевич".translify_iso9b
     assert_equal "Ternopil`", "Тернопіль".translify_iso9b
-    assert_equal "Ternopil", "Цялюлєї".translify_iso9b
+    assert_equal "Cyacya", "Цяця".translify_iso9b
+    assert_equal "Czukerka", "Цукерка".translify_iso9b
   end
 
 end
