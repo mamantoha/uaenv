@@ -60,7 +60,7 @@ module UaEnv::Transliteration::ISO9B
     'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'x', ['cz', 'c'], 'ch', 'sh', 'shh', 'yu', 'ya', '`', '\'']
 
   ISO9_UPPER = ISO9_LOWER.map{ |i| i.is_a?( Array ) ? i.map{ |j| j.upcase } : i.upcase }
-  
+
   ISO9 = ISO9_LOWER + ISO9_UPPER
 
   TABLE = {}

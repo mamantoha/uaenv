@@ -16,7 +16,7 @@ require File.join(File.dirname(__FILE__), 'qwertz')
 
 # Реалізує транслітерацію будь-якого об'єкта, що реалізує String
 module UaEnv::Transliteration::StringFormatting
-  
+
   #Транслітерація строки у латиницю
   def translify_national
     UaEnv::Transliteration::National::translify(self.to_s)

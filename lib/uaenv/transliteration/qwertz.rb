@@ -24,7 +24,7 @@ module UaEnv::Transliteration::QWERTY
     chars = str.split(//)
     result = ''
     chars.each{ |char| result << ( LAT.include?(char) ? TABLE_LAT_KEYS[char] : char ) }
-    
+
     return result
   end
 
@@ -33,7 +33,7 @@ module UaEnv::Transliteration::QWERTY
     chars = str.split(//)
     result = ''
     chars.each { |char| result << ( UA.include?(char) ? TABLE_UA_KEYS[char] : char ) }
-    
+
     return result
   end
 

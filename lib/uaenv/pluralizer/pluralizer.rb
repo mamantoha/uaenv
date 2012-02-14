@@ -49,7 +49,7 @@ module UaEnv
       return into if tmp_val == 0
 
       # тисячі
-      into, tmp_val = sum_string_fn(into, tmp_val, 2, "тисяча", "тисячі", "тисяч") 
+      into, tmp_val = sum_string_fn(into, tmp_val, 2, "тисяча", "тисячі", "тисяч")
 
       return into if tmp_val == 0
 
@@ -70,8 +70,8 @@ module UaEnv
       #
       rest = tmp_val % 1000
       tmp_val = tmp_val / 1000
-      if rest == 0 
-        # останні три знаки нульові 
+      if rest == 0
+        # останні три знаки нульові
         into = five_items + " " if into == ""
         return [into, tmp_val]
       end
@@ -135,7 +135,7 @@ module UaEnv
             if gender == 2
               ones = "дві "
             else
-              ones = "два " 
+              ones = "два "
             end
             end_word = two_items
           when 3
@@ -157,7 +157,7 @@ module UaEnv
 
       # складання строки
       st = ''
-      return [(st << hundreds.to_s << tens.to_s  << ones.to_s << end_word.to_s << " " << into.to_s).strip, tmp_val] 
+      return [(st << hundreds.to_s << tens.to_s  << ones.to_s << end_word.to_s << " " << into.to_s).strip, tmp_val]
     end # def self.sum_string_fn
 
 
@@ -218,17 +218,17 @@ module UaEnv
       def propysom(gender = 1)
         UaEnv::Pluralization::sum_string(self, gender, "")
       end
-      
+
       def propysom_items(gender=1, *forms)
         self.propysom(gender) + " " + UaEnv::Pluralization::choose_plural(self.to_i, *forms)
       end
-      
+
       # Вибирає коректний варіант числівника у залежності від роду і числа. Наприклад:
       # * 4.items("монітор", "монітори", "моніторів") => "монітори"
       def items(one_item, two_items, five_items)
         UaEnv::Pluralization::choose_plural(self, one_item, two_items, five_items)
-      end  
-      
+      end
+
       # Виводить суму у гривнях прописом. Наприклад:
       # * (128.83).grn => "сто двадцять вісім гривень вісімдесят три копійки"
       def grn

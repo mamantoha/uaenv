@@ -5,7 +5,7 @@ require_relative "uaenv/version"
 module UaEnv
   # Каталог, куди встановлений модуль UaEnv. Потрібен для автоматичного копіювання у інші додатки.
   INSTALLATION_DIRECTORY = File.expand_path(File.dirname(__FILE__) + '/../') #:nodoc:
-  
+
   def self.load_component(name) #:nodoc:
     require File.join(UaEnv::INSTALLATION_DIRECTORY, "lib/uaenv", name.to_s, name.to_s)
   end

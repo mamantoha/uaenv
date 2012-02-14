@@ -20,7 +20,7 @@ module UaEnv
     # http://unicode.org/reports/tr20/tr20-1.html
     # U+FFFC  Object replacement character
     # офіційно застосовується для позначення вкладеного об'єкту
-    @@ignored = [0xEF, 0xBF, 0xBC].pack("U*").freeze 
+    @@ignored = [0xEF, 0xBF, 0xBC].pack("U*").freeze
 
     def self.ua_strftime(format='%d.%m.%Y', time='')
       clean_fmt = format.to_s.gsub(/%%/, @@ignored).
@@ -41,10 +41,10 @@ module UaEnv
 
       case distance_in_minutes
         when 0..1
-          return (distance_in_minutes == 0) ? 
+          return (distance_in_minutes == 0) ?
             'менше хвилини' :
             '1 хвилину' unless include_seconds
-        
+
         case distance_in_seconds
            when 0..5   then 'менше 5 секунд'
            when 6..10  then 'менше 10 секунд'
@@ -53,15 +53,15 @@ module UaEnv
            when 41..59 then 'менше хвилини'
            else             '1 хвилину'
          end
-        
-         when 2..45      then distance_in_minutes.to_s + 
-                              " " + distance_in_minutes.items("хвилина", "хвилини", "хвилин") 
+
+         when 2..45      then distance_in_minutes.to_s +
+                              " " + distance_in_minutes.items("хвилина", "хвилини", "хвилин")
          when 46..90     then 'близько години'
-         
-         when 90..1440   then "близько " + (distance_in_minutes.to_f / 60.0).round.to_s + 
+
+         when 90..1440   then "близько " + (distance_in_minutes.to_f / 60.0).round.to_s +
                               " " + (distance_in_minutes.to_f / 60.0).round.items("години", 'годин', 'годин')
          when 1441..2880 then '1 день'
-         else                  (distance_in_minutes / 1440).round.to_s + 
+         else                  (distance_in_minutes / 1440).round.to_s +
                               " " + (distance_in_minutes / 1440).round.items("день", "дні", "днів")
          end
     end
@@ -73,7 +73,7 @@ end # module UaEnv
 
 class Time
   #alias_method :strftime_nouaenv, :strftime
-  
+
   def ua_strftime(format)
     UaEnv::UaDates::ua_strftime(format, self)
     #strftime_nouaenv(format)
@@ -82,7 +82,7 @@ end
 
 class DateTime
   #alias_method :strftime_nouaenv, :strftime
-  
+
   def ua_strftime(format)
     UaEnv::UaDates::ua_strftime(format, self)
     #strftime_nouaenv(format)
